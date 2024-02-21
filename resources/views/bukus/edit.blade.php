@@ -1,8 +1,8 @@
 <!-- resources/views/books/edit.blade.php -->
-@extends('layouts.app')
+@extends('layout.main')
 
-@section('content')
-<div class="contrainer">
+@section('konten')
+<div class="content-wrapper">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -18,30 +18,28 @@
                         </ul>
                     </div>
                     @endif
-
-                    <a href="{{ route('books.edit', $buku->id) }}">Edit Buku</a>
-
-                        @csrf
-                        @method('PUT')
+<form action="{{ route('books.update', $book->id) }}" method="post">
+    @csrf
+    @method('PUT')
 
                         <div class="form-group">
-                            <label for="judul">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $buku->judul }}" required>
+                            <label for="Judul">Judul</label>
+                            <input type="text" class="form-control" id="Judul" name="Judul" value="{{ $book->Judul }}" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="penerbit">penerbit</label>
-                            <input type="text" class="form-control" id="penerbit" name="penerbit" value="{{ $buku->penerbit }}" required>
+                            <label for="Penerbit">Penerbit</label>
+                            <input type="text" class="form-control" id="Penerbit" name="Penerbit" value="{{ $book->Penerbit }}" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="penulis">Penulis</label>
-                            <input type="number" class="form-control" id="penulis" name="penulis" value="{{ $buku->penulis }}" required>
+                            <label for="Penulis">Penulis</label>
+                            <input type="text" class="form-control" id="Penulis" name="Penulis" value="{{ $book->Penulis }}" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="tahun_terbit">Tahun Terbit</label>
-                            <input type="number" class="form-control" id="tahun_terbit" name="tahun_terbit" value="{{ $buku->tahun_terbit }}" required>
+                            <label for="TahunTerbit">Tahun Terbit</label>
+                            <input type="number" class="form-control" id="TahunTerbit" name="TahunTerbit" value="{{ $book->TahunTerbit }}" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
@@ -50,5 +48,5 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 @endsection
