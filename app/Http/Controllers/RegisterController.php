@@ -13,19 +13,28 @@ class RegisterController extends Controller
     }
 
     public function register(Request $request)
-    {
-        // Membuat user baru
-        $user = new User([
-            'username' => $request->input('username'),
-            'password' => bcrypt($request->input('password')),
-            'email' => $request->input('email'),
-            'namaLengkap' => $request->input('namaLengkap'),
-            'Alamat' => $request->input('Alamat'),
-        ]);
+{
+    $request->validate([
+        'username' => 'required',
+        'password' => 'required|min:6',
+        'email' => 'required|email|unique:users',
+        'namaLengkap' => 'required', // Add validation for the 'namaLengkap' field
+        'alamat' => 'required',
+    ]);
 
-        $user->save();
+    // Create a new user
+    $user = new User([
+        'username' => $request->input('username'),
+        'password' => bcrypt($request->input('password')),
+        'email' => $request->input('email'),
+        'namaLengkap' => $request->input('namaLengkap'),
+        'alamat' => $request->input('alamat'),
+    ]);
 
-        // Redirect ke halaman login setelah registrasi berhasil
-        return redirect('/login')->with('success', 'Registration successful. Please login.');
-    }
+    $user->save();
+
+    // Redirect to the login page after successful registration
+    return redirect('/login')->with('success', 'Registration successful. Please login.');
+}
+
 }

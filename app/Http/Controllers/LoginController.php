@@ -24,7 +24,7 @@ class LoginController extends Controller
         // Coba melakukan otentikasi
         if (Auth::attempt($credentials)) {
             // Jika otentikasi berhasil, redirect ke halaman dashboard atau halaman yang diinginkan
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/home');
         } else {
             // Jika otentikasi gagal, kembali ke halaman login dengan pesan kesalahan
             return redirect('/')->with('error', 'Email atau password salah.');

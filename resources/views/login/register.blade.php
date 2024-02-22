@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Nama Lengkap" name="NamaLengkap">
+            <input type="text" class="form-control" placeholder="Nama Lengkap" name="namaLengkap">
             <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-user"></span>

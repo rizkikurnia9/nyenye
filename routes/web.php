@@ -20,8 +20,8 @@ use App\Http\Controllers\RegisterController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('layout.main');
+Route::get('/home', function () {
+    return view('home');
 });
 
 // // Menampilkan semua buku

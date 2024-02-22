@@ -36,7 +36,6 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>BukuId</th>
                     <th>Judul</th>
                     <th>Penulis</th>
                     <th>Penerbit</th>
