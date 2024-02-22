@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Buku;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class BukuController extends Controller
 {
@@ -40,27 +41,30 @@ class BukuController extends Controller
 
 
 
-    public function update(Request $request, Buku $book)
+    public function update(Request $request, $id)
     {
+        $book = Buku::findOrFail($id);
+    
         $validatedData = $request->validate([
             'Judul' => 'required',
             'Penulis' => 'required',
             'Penerbit' => 'required',
-            'TahunTerbit' => 'required'
+            'TahunTerbit' => 'required',
         ]);
-
-        $book->update($validatedData);
-
+    
+        $book->update($validatedData); // Menggunakan data yang telah divalidasi
+    
         return redirect()->route('books.index')
             ->with('success', 'Buku berhasil diperbarui');
     }
 
 
-    public function destroy(Buku $buku)
+    public function destroy(Buku $buku, $id)
     {
+        $buku = Buku::findOrfail($id);
         $buku->delete();
 
-        return redirect()->route('bukus.index')
+        return redirect()->route('books.index')
             ->with('success', 'Buku berhasil dihapus');
     }
 }

@@ -36,7 +36,9 @@
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>BukuId</th>
                     <th>Judul</th>
+                    <th>Penulis</th>
                     <th>Penerbit</th>
                     <th>Tahun Terbit</th>
                     <th>Aksi</th>
@@ -50,6 +52,7 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $book->Judul }}</td>
+                        <td>{{ $book->Penulis }}</td>
                         <td>{{ $book->Penerbit }}</td>
                         <td>{{ $book->TahunTerbit }}</td>
                         <td>

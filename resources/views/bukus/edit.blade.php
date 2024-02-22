@@ -18,9 +18,9 @@
                         </ul>
                     </div>
                     @endif
-<form action="{{ route('books.update', $book->id) }}" method="post">
-    @csrf
-    @method('PUT')
+                    <form action="{{ route('books.update', $book->id) }}" method="post">
+                    @csrf
+                    @method('PUT')
 
                         <div class="form-group">
                             <label for="Judul">Judul</label>

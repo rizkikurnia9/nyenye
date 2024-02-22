@@ -72,13 +72,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="/login" class="nav-link">
                         <i class="nav-icon fas fa-right-from-bracket"></i>
                         <p>
                             Logout
                         </p>
                     </a>
-                </li>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
