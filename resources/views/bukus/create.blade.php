@@ -27,17 +27,17 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="judul">judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ old('judul') }}" required>
+                            <label for="Judul">Judul</label>
+                            <input type="text" class="form-control" id="Judul" name="Judul" value="{{ old('Judul') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="penerbit">Penerbit</label>
-                            <input type="text" class="form-control" id="penerbit" name="penerbit" value="{{ old('Penerbit') }}" required>
+                            <label for="Penerbit">Penerbit</label>
+                            <input type="text" class="form-control" id="Penerbit" name="Penerbit" value="{{ old('Penerbit') }}" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="penulis">Penulis</label>
-                            <input type="text" class="form-control" id="penulis" name="penulis" value="{{ old('Penulis') }}" required>
+                            <label for="Penulis">Penulis</label>
+                            <input type="text" class="form-control" id="Penulis" name="Penulis" value="{{ old('Penulis') }}" required>
                         </div>
 
                         <div class="form-group">

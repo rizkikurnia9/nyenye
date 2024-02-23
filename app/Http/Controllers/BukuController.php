@@ -23,8 +23,8 @@ class BukuController extends Controller
     {
         $request->validate([
             'Judul' => 'required',
-            'penulis' => 'required',
-            'penerbit' => 'required',
+            'Penulis' => 'required',
+            'Penerbit' => 'required',
             'TahunTerbit' => 'required'
         ]);
 
@@ -44,16 +44,16 @@ class BukuController extends Controller
     public function update(Request $request, $id)
     {
         $book = Buku::findOrFail($id);
-    
+
         $validatedData = $request->validate([
             'Judul' => 'required',
             'Penulis' => 'required',
             'Penerbit' => 'required',
             'TahunTerbit' => 'required',
         ]);
-    
+
         $book->update($validatedData); // Menggunakan data yang telah divalidasi
-    
+
         return redirect()->route('books.index')
             ->with('success', 'Buku berhasil diperbarui');
     }
