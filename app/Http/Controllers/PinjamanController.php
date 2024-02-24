@@ -10,12 +10,12 @@ class PinjamanController extends Controller
     public function index()
     {
         $pinjaman = Pinjaman::all();
-        return view('pinjaman.index', compact('pinjaman')); // Mengubah 'peminjaman' menjadi 'pinjaman'
+        return view('peminjaman.index', compact('pinjaman')); // Mengubah 'peminjaman' menjadi 'pinjaman'
     }
 
     public function create()
     {
-        return view('pinjaman.create'); // Mengubah 'peminjaman.create' menjadi 'pinjaman.create'
+        return view('peminjaman.create'); // Mengubah 'peminjaman.create' menjadi 'peminjaman.create'
     }
 
     public function store(Request $request)
@@ -30,14 +30,14 @@ class PinjamanController extends Controller
 
         Pinjaman::create($request->all()); // Mengubah 'Peminjaman' menjadi 'Pinjaman'
 
-        return redirect()->route('pinjaman.index')
+        return redirect()->route('peminjaman.index')
             ->with('success', 'Peminjaman berhasil ditambahkan'); // Mengubah 'peminjaman' menjadi 'pinjaman'
     }
 
     public function edit($id) // Mengubah $peminjaman menjadi $id, karena parameter yang diterima adalah id
     {
-        $pinjaman = Pinjaman::findOrFail($id); // Mengubah 'pinjaman.edit' menjadi 'pinjaman.edit'
-        return view('pinjaman.edit', compact('pinjaman'));
+        $pinjaman = Pinjaman::findOrFail($id); // Mengubah 'peminjaman.edit' menjadi 'peminjaman.edit'
+        return view('peminjaman.edit', compact('pinjaman'));
     }
 
     public function update(Request $request, $id)
@@ -54,7 +54,7 @@ class PinjamanController extends Controller
 
         $pinjaman->update($validatedData);
 
-        return redirect()->route('pinjaman.index')
+        return redirect()->route('peminjaman.index')
             ->with('success', 'Peminjaman berhasil diperbarui'); // Mengubah 'pinjaman' menjadi 'Peminjaman'
     }
 
@@ -63,7 +63,7 @@ class PinjamanController extends Controller
         $pinjaman = Pinjaman::findOrFail($id);
         $pinjaman->delete();
 
-        return redirect()->route('pinjaman.index')
+        return redirect()->route('peminjaman.index')
             ->with('success', 'Peminjaman berhasil dihapus'); // Mengubah 'pinjaman' menjadi 'Peminjaman'
     }
 }
