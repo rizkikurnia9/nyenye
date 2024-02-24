@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Tambah Buku Baru</div>
+                <div class="card-header">Tambah Buku</div>
 
                 <div class="card-body">
                     @if ($errors->any())

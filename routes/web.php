@@ -61,10 +61,18 @@ Route::post('/books', [BukuController::class, 'store'])->name('books.store');
 Route::get('/books/{book}/edit', [BukuController::class, 'edit'])->name('books.edit');
 Route::put('/books/{book}', [BukuController::class, 'update'])->name('books.update');
 Route::delete('/books/{book}', [BukuController::class, 'destroy'])->name('books.destroy');
+
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::get('/peminjaman', [PinjamanController::class, 'index'])->name('pinjaman.index');
+Route::get('/pinjaman', [PinjamanController::class, 'index'])->name('pinjaman.index');
+Route::get('/pinjaman/create', [PinjamanController::class, 'create'])->name('pinjaman.create');
+Route::post('/pinjaman', [PinjamanController::class, 'store'])->name('pinjaman.store');
+Route::get('/pinjaman/{pinjaman}/edit', [PinjamanController::class, 'edit'])->name('pinjaman.edit');
+Route::put('/pinjaman/{pinjaman}', [PinjamanController::class, 'update'])->name('pinjaman.update');
+Route::delete('/pinjaman/{pinjaman}', [PinjamanController::class, 'destroy'])->name('pinjaman.destroy');
 

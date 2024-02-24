@@ -38,7 +38,7 @@ class BukuController extends Controller
     {
         return view('bukus.edit', compact('book'));
     }
-
+    
 
 
     public function update(Request $request, $id)

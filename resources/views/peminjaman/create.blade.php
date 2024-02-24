@@ -23,26 +23,26 @@
                     <div class="alert alert-success">{{ session('success') }}</div>
                     @endif
 
-                    <form method="POST" action="{{ route('books.store') }}">
+                    <form method="POST" action="{{ route('pinjaman.store') }}">
                         @csrf
 
                         <div class="form-group">
-                            <label for="Judul">Judul</label>
-                            <input type="text" class="form-control" id="Judul" name="Judul" value="{{ old('Judul') }}" required>
+                            <label for="UserID">UserID</label>
+                            <input type="text" class="form-control" id="UserID" name="UserID" value="{{ old('UserID') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="Penerbit">Penerbit</label>
-                            <input type="text" class="form-control" id="Penerbit" name="Penerbit" value="{{ old('Penerbit') }}" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Penulis">Penulis</label>
-                            <input type="text" class="form-control" id="Penulis" name="Penulis" value="{{ old('Penulis') }}" required>
+                            <label for="BukuID">BukuID</label>
+                            <input type="text" class="form-control" id="BukuID" name="BukuID" value="{{ old('BukuID') }}" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="TahunTerbit">Tahun Terbit</label>
-                            <input type="number" class="form-control" id="TahunTerbit" name="TahunTerbit" value="{{ old('TahunTerbit') }}" required>
+                            <label for="TanggalPeminjaman">TanggalPeminjaman</label>
+                            <input type="text" class="form-control" id="TanggalPeminjaman" name="TanggalPeminjaman" value="{{ old('TanggalPeminjaman') }}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TanggalPengembalian">Tanggal Pengembalian</label>
+                            <input type="number" class="form-control" id="TanggalPengembalian" name="TanggalPengembalian" value="{{ old('TanggalPengembalian') }}" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
