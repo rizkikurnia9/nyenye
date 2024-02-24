@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pinjaman;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class PinjamanController extends Controller
@@ -11,12 +10,12 @@ class PinjamanController extends Controller
     public function index()
     {
         $pinjaman = Pinjaman::all();
-        return view('peminjaman.index', compact('pinjaman'));
+        return view('pinjaman.index', compact('pinjaman')); // Mengubah 'peminjaman' menjadi 'pinjaman'
     }
 
     public function create()
     {
-        return view('pinjaman.create');
+        return view('pinjaman.create'); // Mengubah 'peminjaman.create' menjadi 'pinjaman.create'
     }
 
     public function store(Request $request)
@@ -29,22 +28,21 @@ class PinjamanController extends Controller
             'StatusPeminjaman' => 'required'
         ]);
 
-        peminjaman::create($request->all());
+        Pinjaman::create($request->all()); // Mengubah 'Peminjaman' menjadi 'Pinjaman'
 
-        return redirect()->route('peminjaman.index')
-            ->with('success', 'peminjaman berhasil ditambahkan');
+        return redirect()->route('pinjaman.index')
+            ->with('success', 'Peminjaman berhasil ditambahkan'); // Mengubah 'peminjaman' menjadi 'pinjaman'
     }
 
-    public function edit(peminjaman $peminjaman)
+    public function edit($id) // Mengubah $peminjaman menjadi $id, karena parameter yang diterima adalah id
     {
-        return view('pinjaman.edit', compact('peminjaman'));
+        $pinjaman = Pinjaman::findOrFail($id); // Mengubah 'pinjaman.edit' menjadi 'pinjaman.edit'
+        return view('pinjaman.edit', compact('pinjaman'));
     }
-
-
 
     public function update(Request $request, $id)
     {
-        $pinjaman = pinjaman::findOrFail($id);
+        $pinjaman = Pinjaman::findOrFail($id);
 
         $validatedData = $request->validate([
             'UserID' => 'required',
@@ -54,19 +52,18 @@ class PinjamanController extends Controller
             'StatusPeminjaman' => 'required'
         ]);
 
-        $pinjaman->update($validatedData); // Menggunakan data yang telah divalidasi
+        $pinjaman->update($validatedData);
 
         return redirect()->route('pinjaman.index')
-            ->with('success', 'pinjaman berhasil diperbarui');
+            ->with('success', 'Peminjaman berhasil diperbarui'); // Mengubah 'pinjaman' menjadi 'Peminjaman'
     }
 
-
-    public function destroy(pinjaman $pinjaman, $id)
+    public function destroy($id) // Mengubah $pinjaman menjadi $id, karena parameter yang diterima adalah id
     {
-        $pinjaman = pinjaman::findOrfail($id);
+        $pinjaman = Pinjaman::findOrFail($id);
         $pinjaman->delete();
 
         return redirect()->route('pinjaman.index')
-            ->with('success', 'pinjaman berhasil dihapus');
+            ->with('success', 'Peminjaman berhasil dihapus'); // Mengubah 'pinjaman' menjadi 'Peminjaman'
     }
 }
